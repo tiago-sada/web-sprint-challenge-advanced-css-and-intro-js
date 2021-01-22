@@ -252,9 +252,9 @@ function get20s(array){
   const namesList = [];
   for (let i = 0; i < array.length; i++ ) {
     const birth = array[i].years.substring(0,4);
-    console.log(birth);
+    // console.log(birth);
     const death = array[i].years.substring(7,12);
-    console.log(death);
+    // console.log(death);
     if ((birth >= 1900 && birth < 2000) && (death >= 1900 && death < 2000)) {
       namesList.push(array[i].name);
     }
@@ -273,8 +273,9 @@ function get20s(array){
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
-   /*Your Code Here*/
+function removeArtist(array, index){
+   array.splice(index, 1);
+   return array.length;
 }
    
 
@@ -294,9 +295,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+function addArtist(array){
+  const object = { 
+    id: 20,
+    name: "Tiago Sada", 
+    years: "1996 - Jan/22/2021",
+    genre: "Web Design", 
+    nationality: "Mexican",
+    bio: "This is for the dreamers, the doers, and the fighters. The Round Pegs."
+  }  
+    array.push(object);
+    return array;
+}
 
   
 
@@ -307,8 +317,14 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(array){
+  const theOneHundredClub = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].paintings > 100) {
+      theOneHundredClub.push(array[i].name);
+    }
+  }
+  return theOneHundredClub;
 }
 
 
